@@ -1,0 +1,12 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}Создать аккаунт{% endblock %}
+{% block content %}
+    <h1>Создать аккаунт</h1>
+    <p>Используйте поля ниже для регистрации</p>
+    <form method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Создать аккаунт"></p>
+    </form>
+{% endblock %}

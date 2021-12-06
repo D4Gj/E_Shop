@@ -1,0 +1,14 @@
+{% extends "shop/base.html" %}
+{% block title %}Изменение аккаунта{% endblock %}
+{% block content %}
+    <h1>Изменение аккаунта</h1>
+    <p><a href="{% url "passwords_change" %}">Изменение пароля.</a></p>
+    <a href="{% url "logout" %}">Выйти из аккаунта.</a>
+
+    <p>Для изменения информации используйте поля:</p>
+    <form method="post" enctype="multipart/form-data">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Сохранить изменения"></p>
+    </form>
+{% endblock %}

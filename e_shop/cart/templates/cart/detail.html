@@ -23,7 +23,8 @@
                     <td>
                         <a href="{{ product.get_absolute_url }}">
                             <img src="
-                                    {% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}">
+
+                                    {% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                         </a>
                     </td>
                     <td>{{ product.name }}</td>
@@ -42,20 +43,20 @@
                         </form>
                     </td>
                     <td class="num">₽{{ item.price }}</td>
-                    <td class="num">₽{{ item.total_price }}</td>
+                    <td class="">₽{{ item.total_price }}</td>
                 </tr>
             {% endwith %}
         {% endfor %}
         <tr class="total">
             <td>Всего</td>
             <td colspan="4"></td>
-            <td class="num">₽{{ cart.get_total_price }}</td>
+            <td class="total">₽{{ cart.get_total_price }}</td>
         </tr>
         </tbody>
     </table>
     <p class="text-right">
         <a href="{% url "shop:product_list" %}" class="button
     light">Вернуться к покупкам</a>
-        <a href="#" class="button">Оплата</a>
+        <a href="{% url "orders:order_create" %}" class="button">Оформить заказ</a>
     </p>
 {% endblock %}

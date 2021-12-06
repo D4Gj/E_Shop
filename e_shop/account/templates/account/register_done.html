@@ -1,0 +1,8 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}Добро пожаловать{% endblock %}
+{% block content %}
+    <h1>Спасибо за регистрацию, {{ new_user.first_name }}!</h1>
+    <p>Вы успешно создали аккаунт<a
+            href="{% url "login" %}">log in</a>.</p>
+{% endblock %}

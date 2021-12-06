@@ -9,13 +9,26 @@
 <body>
 <div id="header">
     <a href="/" class="logo">Компьютерный магазин</a>
+    <span class="user">
+    <div class="text-right">
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_staff %}
+                <a href="admin">Админ-панель</a>
+            {% endif %}
+            {{ request.user.first_name }}
+            <a href="{% url "edit" %}">Аккаунт</a>
+        {% else %}
+            <a href="{% url "login" %}">Войти в аккаунт</a>
+        {% endif %}
+    </div>
+</span>
 </div>
 <div id="subheader">
     <div class="cart">
         {% with total_items=cart|length %}
             {% if total_items > 0 %}
                 <a href="{% url "cart:cart_detail" %}">
-                Товары в корзине:
+                    Товары в корзине:
                     {{ total_items }},
                     ₽{{ cart.get_total_price }}
                 </a>
