@@ -13,12 +13,12 @@
     <div class="text-right">
         {% if request.user.is_authenticated %}
             {% if request.user.is_staff %}
-                <a href="admin">Админ-панель</a>
+                <a href="admin" id="admin">Админ-панель</a>
             {% endif %}
             {{ request.user.first_name }}
             <a href="{% url "edit" %}">Аккаунт</a>
         {% else %}
-            <a href="{% url "login" %}">Войти в аккаунт</a>
+            <a id="login" href="{% url "login" %}">Войти в аккаунт</a>
         {% endif %}
     </div>
 </span>

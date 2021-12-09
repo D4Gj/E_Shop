@@ -5,7 +5,7 @@
     <h1>Авторизация</h1>
     {% if form.errors %}
     {% else %}
-        <p>Используйте следующие поля для авторизации. Если у вас нет аккаунта <a href="{% url "register" %}">регистрация</a>
+        <p>Используйте следующие поля для авторизации. Если у вас нет аккаунта <a id="register" href="{% url "register" %}">регистрация</a>
         </p>
     {% endif %}
     <div class="login-form">
@@ -13,7 +13,7 @@
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}"/>
-            <p><input type="submit" value="Войти"></p>
+            <p><input type="submit" value="Войти" id="login_btn"></p>
         </form>
     </div>
 {% endblock %}

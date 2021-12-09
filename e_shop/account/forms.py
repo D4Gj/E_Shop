@@ -7,9 +7,11 @@ from e_shop.settings import AUTH_PASSWORD_VALIDATORS
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput,
-                               validators=[validate_password])
+                               validators=[validate_password]
+                               )
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput,
-                                validators=[validate_password])
+                                validators=[validate_password]
+                                )
 
     class Meta:
         model = User
